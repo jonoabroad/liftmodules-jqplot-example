@@ -6,7 +6,7 @@ import scala.xml.NodeSeq
 import net.liftweb.common._
 import net.liftweb.http.S
 
-import net.liftmodules._
+import net.liftmodules.jqplot._
 
 trait Bs {  implicit def pair2ListAny(p:List[(Any,Any)]): List[List[Any]] = p.map{x => List(x._1,x._2)} }
 
@@ -36,7 +36,7 @@ class Dates extends Bs  {
     
    val series = List((now,0.0), (then,-1.0), (soon,1.0))
  
-   val x = Axis(xaxis()).renderer(DateAxisRenderer())
+   val x = Axis().renderer(DateAxisRenderer())
    
    val s = Series().lineWidth(4).markerOptions(MarkerOption().style(square()))
 
@@ -64,7 +64,7 @@ class Bar extends Bs  {
    val seriesB = List((5,1), (1,2), (3,3), (4,4))
    val seriesC = List((4,1), (7,2), (1,3), (2,4))
    
-   val options = Options().title("Bar chart").seriesDefault(Series().renderer(BarRenderer()).shadowAngle(135)).axes(Axes().yaxis(Axis(yaxis()).renderer(CategoryAxisRenderer())))
+   val options = Options().title("Bar chart").seriesDefault(Series().renderer(BarRenderer()).shadowAngle(135)).axes(Axes().yaxis(Axis().renderer(CategoryAxisRenderer())))
    
     new JqPlot(512,512,Full(options),seriesA,seriesB,seriesC).toCssTransformer
   } 
@@ -85,7 +85,7 @@ class OHLC  extends Bs {
    val series = List(List("06/15/2009 16:00:00", 136.01, 139.5, 134.53, 139.48),List("06/08/2009 16:00:00", 143.82, 144.56, 136.04, 136.97),List("06/01/2009 16:00:00", 136.47, 146.4, 136.0, 144.67),List("05/26/2009 16:00:00", 124.76, 135.9, 124.55, 135.81))
    
    val options = Options().title("OHLC").axes(
-      Axes().xaxis(Axis(xaxis()).renderer(DateAxisRenderer()))).
+      Axes().xaxis(Axis().renderer(DateAxisRenderer()))).
       series(List(Series().renderer(OHLCRenderer())))
    
    
@@ -100,8 +100,8 @@ class Cosine extends Bs  {
    val v = 0D to 2*Pi by 0.1
    val series = for { i <- v.toList } yield {(i,cos(i))}
    
-   val options = Options().title("Cosine").axes(Axes().xaxis(Axis(xaxis()).label("Angle (radians)")).
-		   											   yaxis(Axis(yaxis()).label("Cosine")))
+   val options = Options().title("Cosine").axes(Axes().xaxis(Axis().label("Angle (radians)")).
+		   											   yaxis(Axis().label("Cosine")))
       
     new JqPlot(512,512,Full(options),series).toCssTransformer
   } 

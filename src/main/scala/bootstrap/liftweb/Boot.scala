@@ -8,7 +8,7 @@ import common._
 import http._
 import sitemap._
 import Loc._
-import net.liftmodules.JqPlot
+import net.liftmodules.jqplot.JqPlot
 
 /**
  * A class that's instantiated early and run.  It allows the application
