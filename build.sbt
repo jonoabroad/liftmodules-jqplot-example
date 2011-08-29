@@ -17,14 +17,14 @@ libraryDependencies ++= {
   val liftVersion = "2.4-M3" 
   Seq(
     "net.liftweb" %% "lift-webkit" % liftVersion % "compile->default",
-    "net.liftmodules" %% "jqplot" %  (liftVersion+"-0.1.0"))
+    "net.liftmodules" %% "jqplot" %  (liftVersion+"-0.10.0"))
 }
 
 // Customize any further dependencies as desired
 libraryDependencies ++= Seq(
-  "org.eclipse.jetty" % "jetty-webapp" % "7.3.0.v20110203" % "jetty", // For Jetty 7
+  "org.eclipse.jetty" % "jetty-webapp" % "7.3.0.v20110203" % "jetty",
   "javax.servlet" % "servlet-api" % "2.5" % "provided->default"
-  //"org.mortbay.jetty" % "jetty" % "6.1.22" % "jetty,test", // For Jetty 6, add scope test to make jetty avl. for tests
 )
 
 
+  
