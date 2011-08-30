@@ -84,6 +84,30 @@ object Cosine extends PlotSnippet  {
    override val options = Full(Options().title("Cosine").axes(Axes().xaxis(Axis().label("Angle (radians)")).
 		   											   yaxis(Axis().label("Cosine"))))
 }
+object LineOptions extends PlotSnippet {
+  
+  import scala.math._ 
+  
+  val v = 0D to 2*Pi by 0.1
+  val cosPoints = for { i <- v.toList } yield {(i,cos(i))}
+    
+  val sinPoints = for { i <- v.toList } yield {(i,2* sin(i-.8))} 
+    
+  val powPoints1 =  for { i <- v.toList } yield {(i,2.5 + pow(i/4, 2))}
+
+  val powPoints2 =  for { i <- v.toList } yield {(i,-2.5 - pow(i/4, 2))}
+   
+  override val series:Array[List[List[Any]]] = Array(cosPoints,sinPoints,powPoints1,powPoints2)
+  
+   
+  val s1 = Series().lineWidth(2).markerOptions(MarkerOption().style(diamond()))
+  val s2 = Series().markerOptions(MarkerOption().size(7)).hideLine
+  val s3 = Series().markerOptions(MarkerOption().style(circle()))
+  val s4 = Series().lineWidth(5).markerOptions(MarkerOption().style(filledSquare()).size(10))
+  
+  override val options = Box !! Options().title("Line Style Options").series(List(s1,s2,s3,s4))
+  
+}
 
 
 
