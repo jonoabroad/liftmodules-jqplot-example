@@ -42,7 +42,7 @@ object Pie extends PlotSnippet  {
   
     override  val series:Array[List[List[Any]]] = Array(List(("Heavy Industry", 12),("Retail", 9), ("Light Industry", 14),("Out of home", 16),("Commuting", 7), ("Orientation", 9)))
 
-    override  val options = Full(Options().title("Pie Chart").seriesDefault(Series().renderer(PieRenderer()))) //.legend(Legend().location(EA()))
+    override  val options = Full(Options().title("Pie Chart").seriesDefault(Series().renderer(PieRenderer())).legend(Legend().location(EA()).show))
     
    
 }
