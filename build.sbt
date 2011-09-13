@@ -1,6 +1,6 @@
 name := "JqPlot liftmodule examples"
  
-scalaVersion := "2.9.0-1"
+scalaVersion := "2.9.1"
  
 seq(com.github.siasia.WebPlugin.webSettings :_*)
 
@@ -14,7 +14,7 @@ resolvers += "Java.net Maven2 Repository" at "http://download.java.net/maven/2/"
 resolvers += "liftmodules repository" at "http://repository-liftmodules.forge.cloudbees.com/release/"
 
 libraryDependencies ++= {
-  val liftVersion = "2.4-M3" 
+  val liftVersion = "2.4-M4" 
   Seq(
     "net.liftweb" %% "lift-webkit" % liftVersion % "compile->default",
     "net.liftmodules" %% "jqplot" %  (liftVersion+"-0.10.0"))
