@@ -1,3 +1,18 @@
+/*
+        Copyright 2011 Spiral Arm Ltd
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.package bootstrap.liftmodules
+*/
 package code.snippet
 
 import scala.xml.NodeSeq
@@ -32,7 +47,7 @@ class Dates extends PlotSnippet  {
    override val series:Array[List[List[Any]]] = Array(List((now,0.0), (then,-1.0), (soon,1.0)))
  
    val x = Axis().renderer(DateAxisRenderer())
-   val s = Series().lineWidth(4).markerOptions(MarkerOption().style(square()))
+   val s = Series().lineWidth(4).markerOptions(MarkerOption().style(square()))//.color("#5F5F5F")
    override val options = Full(Options().title("Date objects").axes(Axes().xaxis(x)).seriesDefault(s))
      
    
@@ -108,7 +123,27 @@ object LineOptions extends PlotSnippet {
   override val options = Box !! Options().title("Line Style Options").series(List(s1,s2,s3,s4))
   
 }
-
+object Steve extends PlotSnippet  {
+   
+//    var line1=[['23-May-08', 578.55], ['20-Jun-08', 566.5], ['25-Jul-08', 480.88], ['22-Aug-08', 509.84],
+//      ['26-Sep-08', 454.13], ['24-Oct-08', 379.75], ['21-Nov-08', 303], ['26-Dec-08', 308.56],
+//      ['23-Jan-09', 299.14], ['20-Feb-09', 346.51], ['20-Mar-09', 325.99], ['24-Apr-09', 386.15]];
+//  
+	val l = List(("23-May-08",578.55), ("20-Jun-08",566.5),("25-Jul-08",480.88),("22-Aug-08",509.84),("26-Sep-08",454.13))
+  
+	override val series:Array[List[List[Any]]] = Array(l)   
+    
+   val x =    Axis().renderer(DateAxisRenderer()).tickOptions(TickOptions().formatString("%b&nbsp;%#d"))
+   
+   val y =    Axis().tickOptions(TickOptions().formatString("$%0.2f"))
+   
+   val hl =    HighLighter().hide
+   
+   val c =     Cursor().display.tooltipLocation(SW())
+   
+   override val options = Full(Options().title("Average Revenue").axes(Axes().xaxis(x).yaxis(y)).highLighter(hl).cursor(c))
+   
+}
 
 
  
