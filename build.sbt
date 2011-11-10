@@ -14,7 +14,7 @@ resolvers += "Java.net Maven2 Repository" at "http://download.java.net/maven/2/"
 resolvers += "liftmodules repository" at "http://repository-liftmodules.forge.cloudbees.com/release/"
 
 libraryDependencies ++= {
-  val liftVersion = "2.4-M4" 
+  val liftVersion = "2.4-M5" 
   Seq(
     "net.liftweb" %% "lift-webkit" % liftVersion % "compile->default",
     "net.liftmodules" %% "jqplot" %  (liftVersion+"-0.12.0"))
