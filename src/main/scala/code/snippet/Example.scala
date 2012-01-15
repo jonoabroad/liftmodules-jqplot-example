@@ -133,9 +133,9 @@ object Steve extends PlotSnippet  {
   
 	override val series:Array[List[List[Any]]] = Array(l)   
     
-   val x =    Axis().renderer(DateAxisRenderer()).tickOptions(TickOptions().formatString("%b&nbsp;%#d"))
+   val x =    Axis().renderer(DateAxisRenderer()).tickOptions(TickOptions().formatString("%b&nbsp;%#d")).syncTicks
    
-   val y =    Axis().tickOptions(TickOptions().formatString("$%0.2f"))
+   val y =    Axis().tickOptions(TickOptions().formatString("$%0.2f")).syncTicks
    
    val hl =    HighLighter().hide
    

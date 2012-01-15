@@ -17,7 +17,7 @@ libraryDependencies ++= {
   val liftVersion = "2.4-M5" 
   Seq(
     "net.liftweb" %% "lift-webkit" % liftVersion % "compile->default",
-    "net.liftmodules" %% "jqplot" %  (liftVersion+"-0.12.0"))
+    "net.liftmodules" %% "jqplot" %  (liftVersion+"-0.13.0"))
 }
 
 // Customize any further dependencies as desired
